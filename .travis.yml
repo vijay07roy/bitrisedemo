@@ -3,7 +3,13 @@ language: python
 sudo: false
 
 # Python necessary version
-python: 3.6
+python:
+- '2.7'
+- '3.6'
+
+#cache
+
+cache: pip
 
 before_install:
   - pip install mkdocs-material
