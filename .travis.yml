@@ -1,23 +1,4 @@
-# Python language script
-language: python
-sudo: false
-
-# Python necessary version
-python: "3.6"
-
-# Install dependencies
-install:
-- pip install -r requirements.txt
-
-# Perform build and release
-script:
-  - mkdocs build --verbose --clean --strict
-
-# Deploy artifacts
-after_success:
-  - ./.travis.sh
-  
-# Python language script
+ # Python language script
 language: python
 sudo: false
 
