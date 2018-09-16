@@ -1,0 +1,53 @@
+# Project information
+site_name: 'LYHME'
+site_description: 'LYHME'
+site_author: 'UncleLYHME'
+site_url: 'https://UncleLYHME.github.io/LYHME'
+
+# Copyright
+copyright: 'Copyright &copy; 2018 LYHME'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# Extensions
+markdown_extensions:
+  - toc:
+      permalink: True
+      separator: "_"
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Extra Javascript
+extra_javascript:
+  - 'js/mathjaxextra.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+# Navigation
+nav:
+    - Home: index.md
