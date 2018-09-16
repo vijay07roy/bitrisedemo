@@ -1,32 +1,18 @@
+# Python language script
 language: python
 sudo: false
 
-env:
-  global:
-  - GIT_NAME: "'Vijay Roy'"
-  - GIT_EMAIL: vijay07roy@gmail.com
-  - GH_REF: git@github.com:vijay07roy/mkdocs.wikio.git
+# Python necessary version
+python: "3.6"
 
+# Install dependencies
 install:
 - pip install -r requirements.txt
 
+# Perform build and release
 script:
-- openssl aes-256-cbc -K $encrypted_1d262b48bc9b_key -iv $encrypted_1d262b48bc9b_iv -in id_rsa.enc -out id_rsa -d
-- chmod 600 id_rsa
-- eval `ssh-agent -s`
-- ssh-add id_rsa
-- git config user.name "Vijay Roy"
-- git config user.email "vijay07roy@gmail.com"
-- git remote add gh-token "${GH_REF}";
-- git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then echo "Pushing to github"; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
+  - mkdocs build --verbose --clean --strict
 
-deploy: # Deploy documentation to Github in the gh_pages branch
-    provider: pages
-    skip_cleanup: true
-    keep-history: true
-    github-token: $github_token
-    github-url : https://github.com/vijay07roy/mkdocsdemo
-    email:  vijay07roy@gmail.com
-    on:
-        branch: master
+# Deploy artifacts
+after_success:
+  - ./.travis.sh
